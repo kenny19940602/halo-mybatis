@@ -1,0 +1,116 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.5'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.halo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	maven { url 'https://maven.aliyun.com/repository/public/' }
+	mavenCentral()
+}
+
+ext {
+	hutoolVersion = "5.3.8"
+	upyunSdkVersion = "4.2.0"
+	qiniuSdkVersion = "7.2.29"
+	aliyunSdkVersion = "3.11.3"
+	baiduSdkVersion = "0.10.36"
+	qcloudSdkVersion = "5.6.25"
+	minioSdkVersion = "7.1.4"
+	swaggerVersion = "3.0.0"
+	commonsFileUploadVersion = "1.4"
+	commonsLangVersion = "3.10"
+	httpclientVersion = "4.5.12"
+	dataformatYamlVersion = "2.11.0"
+	jgitVersion = "5.9.0.202009080501-r"
+	flexmarkVersion = "0.62.2"
+	thumbnailatorVersion = "0.4.13"
+	image4jVersion = "0.7zensight1"
+	flywayVersion = "7.5.1"
+	h2Version = "1.4.197"
+	levelDbVersion = "0.12"
+	annotationsVersion = "3.0.1u2"
+	zxingVersion = "3.4.0"
+	huaweiObsVersion = "3.19.7"
+	templateInheritanceVersion = "0.4.RELEASE"
+	jsoupVersion = "1.13.1"
+	mybatisGeneratorCore ="1.4.0"
+	mybaitsDynamicSql = "1.2.1"
+	mybaits = "2.1.3"
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation "org.springframework.boot:spring-boot-starter-actuator"
+	implementation "org.springframework.boot:spring-boot-starter-jetty"
+	implementation "org.springframework.boot:spring-boot-starter-freemarker"
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+	implementation "cn.hutool:hutool-core:$hutoolVersion"
+	implementation "cn.hutool:hutool-crypto:$hutoolVersion"
+	implementation "cn.hutool:hutool-extra:$hutoolVersion"
+	implementation "com.upyun:java-sdk:$upyunSdkVersion"
+	implementation "com.qiniu:qiniu-java-sdk:$qiniuSdkVersion"
+	implementation "com.aliyun.oss:aliyun-sdk-oss:$aliyunSdkVersion"
+	implementation "com.baidubce:bce-java-sdk:$baiduSdkVersion"
+	implementation "com.qcloud:cos_api:$qcloudSdkVersion"
+	implementation "com.huaweicloud:esdk-obs-java:$huaweiObsVersion"
+	implementation "io.minio:minio:$minioSdkVersion"
+	implementation "io.springfox:springfox-boot-starter:$swaggerVersion"
+	implementation "commons-fileupload:commons-fileupload:$commonsFileUploadVersion"
+	implementation "org.apache.commons:commons-lang3:$commonsLangVersion"
+	implementation "org.apache.httpcomponents:httpclient:$httpclientVersion"
+	implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$dataformatYamlVersion"
+	implementation "org.eclipse.jgit:org.eclipse.jgit:$jgitVersion"
+	implementation "com.google.code.findbugs:annotations:$annotationsVersion"
+
+	implementation "com.vladsch.flexmark:flexmark:$flexmarkVersion"
+	implementation "com.vladsch.flexmark:flexmark-ext-attributes:$flexmarkVersion"
+	implementation "com.vladsch.flexmark:flexmark-ext-autolink:$flexmarkVersion"
+	implementation "com.vladsch.flexmark:flexmark-ext-emoji:$flexmarkVersion"
+	implementation "com.vladsch.flexmark:flexmark-ext-escaped-character:$flexmarkVersion"
+	implementation "com.vladsch.flexmark:flexmark-ext-gfm-strikethrough:$flexmarkVersion"
+	implementation "com.vladsch.flexmark:flexmark-ext-gfm-tasklist:$flexmarkVersion"
+	implementation "com.vladsch.flexmark:flexmark-ext-ins:$flexmarkVersion"
+	implementation "com.vladsch.flexmark:flexmark-ext-media-tags:$flexmarkVersion"
+	implementation "com.vladsch.flexmark:flexmark-ext-tables:$flexmarkVersion"
+	implementation "com.vladsch.flexmark:flexmark-ext-toc:$flexmarkVersion"
+	implementation "com.vladsch.flexmark:flexmark-ext-superscript:$flexmarkVersion"
+	implementation "com.vladsch.flexmark:flexmark-ext-yaml-front-matter:$flexmarkVersion"
+	implementation "com.vladsch.flexmark:flexmark-ext-gitlab:$flexmarkVersion"
+
+	implementation "kr.pe.kwonnam.freemarker:freemarker-template-inheritance:$templateInheritanceVersion"
+	implementation "net.coobird:thumbnailator:$thumbnailatorVersion"
+	implementation "net.sf.image4j:image4j:$image4jVersion"
+	implementation "org.flywaydb:flyway-core:$flywayVersion"
+	implementation "com.google.zxing:core:$zxingVersion"
+
+	implementation "org.iq80.leveldb:leveldb:$levelDbVersion"
+	runtimeOnly "mysql:mysql-connector-java"
+
+	implementation "org.mybatis.dynamic-sql:mybatis-dynamic-sql:$mybaitsDynamicSql"
+	implementation "org.mybatis.generator:mybatis-generator-core:$mybatisGeneratorCore"
+	implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybaits"
+}
+
+test {
+	useJUnitPlatform()
+}
